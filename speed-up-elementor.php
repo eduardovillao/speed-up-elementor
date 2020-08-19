@@ -67,10 +67,10 @@ class Speed_Elementor_Optimize {
         		ELEMENTOR_ASSETS_URL . 'js/frontend.min.js',
         		[
           		'elementor-frontend-modules',
-          		//'elementor-dialog', //Just comment if you want remove
+          		//'elementor-dialog', //Just comment if you want dont load this JS in page
           		'elementor-waypoints',
           		//'swiper', //Example: disable if you dont use slider os others similars in your page
-          		//'share-link',
+          		//'share-link', //Example: disable if you dont use share links in your page
         		],
         		ELEMENTOR_VERSION,
         		true
@@ -166,6 +166,8 @@ class Speed_Elementor_Optimize {
 	/**
 	 * 
 	 * Remove jQuery migrate from WordPress
+	 * IMPORTANT: WP 5.5 removed jQuery migrate by default
+	 * if you use this version remove this function
 	 * 
 	 */ 
 
