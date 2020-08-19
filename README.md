@@ -15,25 +15,25 @@ Specific in functions `remove_elementor_pro_js` and `remove_elementor_js` commen
 ```
 public function remove_elementor_js () {
 
-		if ( is_front_page() ) {
+	if ( is_front_page() ) {
 
-			wp_deregister_script( 'elementor-frontend' );
+		wp_deregister_script( 'elementor-frontend' );
 
-			wp_register_script(
-        		'elementor-frontend',
-        		ELEMENTOR_ASSETS_URL . 'js/frontend.min.js',
-        		[
-          		'elementor-frontend-modules',
-          		//'elementor-dialog', //Just comment if you want dont load this JS in page
-          		'elementor-waypoints',
-          		'swiper',
-          		'share-link',
-        		],
-        		ELEMENTOR_VERSION,
-        		true
-			);
-		}
+		wp_register_script(
+        	'elementor-frontend',
+        	ELEMENTOR_ASSETS_URL . 'js/frontend.min.js',
+        	[
+          	'elementor-frontend-modules',
+          	//'elementor-dialog', //Just comment if you want dont load this JS in page
+          	'elementor-waypoints',
+          	'swiper',
+          	'share-link',
+        	],
+        	ELEMENTOR_VERSION,
+        	true
+		);
 	}
+}
 ```
 
 **_Improtant: When you remove CSS and JS by Elementor you need understand if its required or not for your page. If you remove required script your page ir broke. Test each optimizations and check what you can remove._** 
