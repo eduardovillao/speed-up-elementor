@@ -136,9 +136,12 @@ class Speed_Elementor_Optimize {
 	*/
 
 	public function remove_style_elementor () {
-
-		//wp_dequeue_style( 'elementor-animations' ); //Example: disable if you dont use animations in you page
-		wp_dequeue_style( 'elementor-frontend' );
+		
+		if ( is_front_page() ) {
+			
+			//wp_dequeue_style( 'elementor-animations' ); //Example: disable if you dont use animations in you page
+			wp_dequeue_style( 'elementor-frontend' );
+		}
 	}
 
 
