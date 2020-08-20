@@ -14,8 +14,12 @@ class Speed_Elementor_Optimize {
     		add_action( 'wp_enqueue_scripts', [ $this, 'remove_elementor_pro_js' ], 20 );
     		add_action( 'elementor/frontend/after_enqueue_styles', [$this, 'remove_style_elementor'], 20 );
 		add_action( 'wp_default_scripts', [$this, 'remove_wp_jquery_migrate'] );
-		add_filter( 'style_loader_src', [$this, 'remove_cssjs_ver'], 999999, 2 );
-		add_filter( 'script_loader_src', [$this, 'remove_cssjs_ver'], 999999, 2 );
+		
+		if( !is_admin() ) {
+			
+			add_filter( 'style_loader_src', [$this, 'remove_cssjs_ver'], 10, 2 );
+			add_filter( 'script_loader_src', [$this, 'remove_cssjs_ver'], 10, 2 );
+		}
 	}
 
 
@@ -196,8 +200,8 @@ class Speed_Elementor_Optimize {
 		if( strpos( $src, '?ver=' ) ) {
 
 			$src = remove_query_arg( 'ver', $src );
-			return $src;
 		}
+		return $src;
 	}
   
 }
